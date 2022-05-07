@@ -7,16 +7,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 
-/**
- *
- * @author gottig
- */
-@Getter @Setter
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity(name= "About")
 @Table(name="about")
 public class About implements Serializable {
@@ -33,13 +32,4 @@ public class About implements Serializable {
     @Column(name="short_explanation")
     private String shortExplanation;
     
-    public About() {
-    }
-
-    public About(Long aboutId, String name, String surname, String shortExplanation) {
-        this.aboutId = aboutId;
-        this.name = name;
-        this.surname = surname;
-        this.shortExplanation = shortExplanation;
-    }
 }

@@ -12,12 +12,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 
-@Getter @Setter
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity(name= "MyProject")
 @Table(name="my_project")
 public class MyProject implements Serializable {
@@ -48,16 +51,5 @@ public class MyProject implements Serializable {
     public Set<Technology> getTechnology(){
         return techList;
     }
-
-    public MyProject() {
-    }
-
-    public MyProject(Long projId, String projName, String projDescription, String projUrl, int projIndex, Set<Technology> techList) {
-        this.projId = projId;
-        this.projName = projName;
-        this.projDescription = projDescription;
-        this.projUrl = projUrl;
-        this.projIndex = projIndex;
-        this.techList = techList;
-    }
+    
 }

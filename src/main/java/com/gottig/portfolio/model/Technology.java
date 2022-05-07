@@ -9,11 +9,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-
-@Getter @Setter
+// @Data engloba: @ToString, @EqualsAndHashCode, @Getter y @Setter en todos los campos
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity(name= "Technology")
 @Table(name="technologies")
 public class Technology implements Serializable{
@@ -47,16 +50,5 @@ public class Technology implements Serializable{
     public Set<MyProject> getMyProject(){
         return myProject;
     }
-
-    public Technology() {
-    }
-
-    public Technology(Long techId, String techName, String techDescription, Double techLevel, int techIndex, Set<MyProject> myProject) {
-        this.techId = techId;
-        this.techName = techName;
-        this.techDescription = techDescription;
-        this.techLevel = techLevel;
-        this.techIndex = techIndex;
-        this.myProject = myProject;
-    }    
+    
 }

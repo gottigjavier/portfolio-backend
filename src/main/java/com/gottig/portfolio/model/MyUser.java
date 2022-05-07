@@ -7,11 +7,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
-@Getter @Setter
+// @Data engloba: @ToString, @EqualsAndHashCode, @Getter y @Setter en todos los campos
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity(name= "MyUser")
 @Table(name= "my_user")
 public class MyUser implements Serializable {
@@ -26,14 +30,5 @@ public class MyUser implements Serializable {
     private String usermail;
 
     private String userpassword;
-    
-    public MyUser() {
-    }
-
-    public MyUser(Long userId, String username, String usermail, String userpassword) {
-        this.userId = userId;
-        this.username = username;
-        this.usermail = usermail;
-        this.userpassword = userpassword;
-    }    
+        
 }

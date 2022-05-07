@@ -39,21 +39,23 @@ En el caso de levantar el servidor mysql desde el terminal a través de
 $ systemctl start mysql.service
 
 por alguna razón que aún no decifro, al querer conectarse jpa, no logra hacerlo sino hasta
-que abrir Workbrench y activar la conexión.
+que abrir Workbrench y activar la conexión o manejarla a través de XAMPP.
 
-La otra solución es manejar la base de datos a tarvés de Xampp (se levanta el servidor apache completo). 
-En este caso hay que crear el usuario y contraseña que se usa en la configuración de jpa y además 
-hay que otorgarle los privilegios para esa tabla específica.
+Al manejar la base de datos a tarvés de Xampp se levanta el servidor apache completo. 
+En este caso hay que crear el usuario y contraseña que se usa en la configuración de jpa 
+en phpMyAdmin y además hay que otorgarle los privilegios para esa base de datos específica
+(phpMyAdmin pestaña "Privilegios").
 
 
 ### Persistencia
 
 El proyecto consiste en un sitio que tendrá los datos de un solo usuario, el cual
 es el único con acceso y permisos para modificarlo.
-Teniendo esto en cuenta se deduce que la mejor forma de estblecer la persistencia
-es a través de tablas no relacionadas (one to one, one to many, etc) y así
-lograr consultas más rápidas a la base de datos ya que solo se devolverá el recurso
-solicitado, sobre todo en modificaciones.
+Teniendo esto en cuenta se deduce que la mejor forma de establecer la persistencia
+es a través la reducción al mínimo del uso de tablas no relacionadas 
+(one to one, one to many, etc)
+y así lograr consultas más rápidas a la base de datos ya que solo se devolverá 
+el recurso solicitado, sobre todo en modificaciones.
 El único momento en que se cargarán más de uno o todos los recursos será en la
 carga inicial. Para ello se apelará al uso de DTO.
 

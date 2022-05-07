@@ -7,11 +7,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
-@Getter @Setter
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity(name= "Skill")
 @Table(name="skills")
 public class Skill implements Serializable{
@@ -38,17 +41,5 @@ public class Skill implements Serializable{
     
     @Column(name="skill_index")// En caso de necesitar que persista el orden dado en el front
     private int skillIndex;
-
-    public Skill() {
-    }
-
-    public Skill(Long skillId, String skillName, String skillType, String skillDescription, Double skillLevel, String skillUrlIcon, int skillIndex) {
-        this.skillId = skillId;
-        this.skillName = skillName;
-        this.skillType = skillType;
-        this.skillDescription = skillDescription;
-        this.skillLevel = skillLevel;
-        this.skillUrlIcon = skillUrlIcon;
-        this.skillIndex = skillIndex;
-    }
+    
 }

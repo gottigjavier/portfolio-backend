@@ -17,17 +17,20 @@ import org.springframework.web.bind.annotation.PutMapping;
 @RestController
 public class UserController {
     
+    private final String CROSSORIGIN = "http://localhost:4200";
+    
     @Autowired
     private UserService userService;
     
     @GetMapping("/user/list")
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = CROSSORIGIN)
     @ResponseBody
     public List<MyUser> getAll(){
         return userService.getAll();
     }
     
     @PostMapping("/user/create")
+    @CrossOrigin(origins = CROSSORIGIN)
     @ResponseBody
     public String create(@RequestBody MyUser user){
         userService.create(user);
@@ -35,6 +38,7 @@ public class UserController {
     }
     
     @DeleteMapping("/user/delete")
+    @CrossOrigin(origins = CROSSORIGIN)
     @ResponseBody
     public String delete(@RequestBody MyUser user){  
         Long id = user.getUserId();
@@ -44,6 +48,7 @@ public class UserController {
     }
     
     @PutMapping("/user/update")
+    @CrossOrigin(origins = CROSSORIGIN)
     @ResponseBody
     public String update(@RequestBody MyUser user){  
         Long id = user.getUserId();

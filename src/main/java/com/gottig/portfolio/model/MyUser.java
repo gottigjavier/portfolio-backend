@@ -25,10 +25,13 @@ public class MyUser implements Serializable {
     @Column(name="user_id")
     private Long userId;
     
-    private String username;
+    @Column(name="user_name")
+    private String userName;
+    
+    @Column(name="user_mail")
+    private String userMail;
 
-    private String usermail;
-
-    private String userpassword;
+    @Column(name="user_password")
+    private String userPassword;
         
 }

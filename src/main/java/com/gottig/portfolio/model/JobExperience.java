@@ -28,19 +28,19 @@ public class JobExperience implements Serializable {
     private Long jobId;
     
     @Column(name="company_name")
-    private String company;
+    private String companyName;
     
-    @Column(name="logo_url")
-    private String companyLogo;
+    @Column(name="company_logo_url")
+    private String companyLogoUrl;
     
     @Column(name="company_activity")
-    private String compActivity;
+    private String companyActivity;
     
     @Column(name="company_link")
-    private String compLink;
+    private String companyLink;
     
-    @Column(name="position")
-    private String position;
+    @Column(name="job_position")
+    private String jobPosition;
     
     @Column(name="job_duties") // Deberes laborales
     private String jobDuties;
@@ -49,10 +49,12 @@ public class JobExperience implements Serializable {
     private String lessonsLearned;
         
     @Temporal(TemporalType.DATE)
+    @Column(name="job_start")
     private java.util.Date jobStart;
     
     @Temporal(TemporalType.DATE)
-    private java.util.Date workEnd;
+    @Column(name="job_end")
+    private java.util.Date jobEnd;
     
     @Column(name="job_index")// En caso de necesitar que persista el orden dado en el front
     private int jobIndex;

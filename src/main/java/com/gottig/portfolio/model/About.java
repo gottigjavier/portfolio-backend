@@ -25,11 +25,16 @@ public class About implements Serializable {
     @Column(name="about_id")
     private Long aboutId;
     
-    private String name;
+    @Column(name="first_name")
+    private String firstName;
     
-    private String surname;
+    @Column(name="last_name")
+    private String lastName;
     
     @Column(name="short_explanation")
     private String shortExplanation;
+    
+    @Column(name="photo_url")
+    private String photoUrl;
     
 }

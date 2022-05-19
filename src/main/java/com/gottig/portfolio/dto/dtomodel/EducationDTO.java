@@ -1,4 +1,4 @@
-package com.gottig.portfolio.dto.classes;
+package com.gottig.portfolio.dto.dtomodel;
 
 import lombok.Data;
 
@@ -15,6 +15,8 @@ public class EducationDTO {
     private String institutionLogo;
     
     private String institutionLink;
+    
+    private String educationCareer;
     
     private java.util.Date educationStart;
     

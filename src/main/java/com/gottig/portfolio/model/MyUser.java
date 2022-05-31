@@ -1,6 +1,7 @@
 package com.gottig.portfolio.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,12 +27,14 @@ public class MyUser implements Serializable {
     private Long userId;
     
     @Column(name="user_name")
-    private String userName;
+    private String username;
     
     @Column(name="user_mail")
     private String userMail;
 
     @Column(name="user_password")
     private String userPassword;
-        
+    
+    @Column(name="user_role")
+    private String userRole;
 }

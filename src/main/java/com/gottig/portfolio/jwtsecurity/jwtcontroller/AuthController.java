@@ -80,8 +80,9 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<JwtDTO> login(@Valid @RequestBody JwtUserLoginDTO loginUserDTO, BindingResult bindingResult){
-        if (bindingResult.hasErrors())
+        if (bindingResult.hasErrors()){
             return new ResponseEntity("Wrong fields", HttpStatus.BAD_REQUEST);
+        }
         Authentication authentication =
                 authenticationManager.authenticate(
                         new UsernamePasswordAuthenticationToken(loginUserDTO.getUserName(),

@@ -22,7 +22,7 @@ public class JwtRoleService {
     }
 
     public void save(JwtRole role){
-        roleDao.save(role);
+        //roleDao.save(role);
     }
     
 }

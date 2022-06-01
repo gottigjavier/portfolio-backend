@@ -24,7 +24,7 @@ public class JwtRole {
     @NotNull
     //Se indica que va a ser un Enum de tipo String
     @Enumerated(EnumType.STRING)
-    @Column(name= "rolename")
+    @Column(name= "rolename", unique = true)
     private JwtRoleName roleName;
 
     public JwtRole() {

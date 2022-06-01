@@ -47,7 +47,10 @@ public class JwtUser {
     private Set<JwtRole> roles = new HashSet<>();
 
     
-    //Constuctor sin Id ni Roles
+    public JwtUser() {
+        }
+
+//Constuctor sin Id ni Roles
     public JwtUser(@NotNull String username, 
                    @NotNull String email, 
                    @NotNull String password

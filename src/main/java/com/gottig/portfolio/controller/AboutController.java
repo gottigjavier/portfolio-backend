@@ -30,7 +30,7 @@ public class AboutController {
     private CommonMapper<AboutDTO, About> aboutMapper;
         
     @GetMapping("/list")
-    @CrossOrigin(origins = CROSSORIGIN)
+    @CrossOrigin(origins = "${cross.origin.value}")
     @ResponseBody
     public List<AboutDTO> getAll(){
         return aboutMapper.toDtoAll(aboutService.getAll());

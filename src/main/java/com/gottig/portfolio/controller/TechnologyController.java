@@ -31,7 +31,7 @@ public class TechnologyController {
     private CommonMapper<TechnologyDTO, Technology> techMapper;
     
     @GetMapping("/list")
-    @CrossOrigin(origins = CROSSORIGIN)
+    @CrossOrigin(origins = "${cross.origin.value}")
     @ResponseBody
     public List<TechnologyDTO> getAll(){
         return techMapper.toDtoAll(techService.getAll());

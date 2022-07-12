@@ -46,7 +46,7 @@ public class SpokenLangController {
     }
     
     
-    @PostMapping("/create")
+    @PostMapping
     @CrossOrigin(origins = "${cross.origin.value}")
     @ResponseBody
     public ResponseEntity create(@RequestBody SpokenLangDTO langDTO){
@@ -56,7 +56,7 @@ public class SpokenLangController {
         return getList();
     }
     
-    @PutMapping("/update")
+    @PutMapping
     @CrossOrigin(origins = "${cross.origin.value}")
     @ResponseBody
     public ResponseEntity update(@RequestBody SpokenLangDTO langDTO){
@@ -66,7 +66,7 @@ public class SpokenLangController {
         return singleGet(langDTO.getLanguageId());
     }
     
-    @PutMapping("/update/list")
+    @PutMapping("/list")
     @CrossOrigin(origins = "${cross.origin.value}")
     @ResponseBody
     public ResponseEntity updateList(@RequestBody List<SpokenLangDTO> langListDTO){
@@ -78,7 +78,7 @@ public class SpokenLangController {
         return getList();
     }
     
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     @CrossOrigin(origins = "${cross.origin.value}")
     @ResponseBody
     public ResponseEntity delete(@PathVariable Long id){  

@@ -43,7 +43,7 @@ public class AboutController {
         return singleGet(id);
     }
     
-    @PostMapping("/create")
+    @PostMapping
     @CrossOrigin(origins = "${cross.origin.value}")
     @ResponseBody
     public ResponseEntity create(@RequestBody AboutDTO aboutDTO){
@@ -53,7 +53,7 @@ public class AboutController {
         return getList();
     }
     
-    @PutMapping("/update")
+    @PutMapping
     @CrossOrigin(origins = "${cross.origin.value}")
     @ResponseBody
     public ResponseEntity update(@RequestBody AboutDTO aboutDTO){
@@ -63,7 +63,7 @@ public class AboutController {
         return singleGet(aboutDTO.getAboutId());
     }
     
-    @PutMapping("/update/list")
+    @PutMapping("/list")
     @CrossOrigin(origins = "${cross.origin.value}")
     @ResponseBody
     public ResponseEntity updateList(@RequestBody List<AboutDTO> aboutListDTO){
@@ -75,7 +75,7 @@ public class AboutController {
         return getList();
     }
     
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     @CrossOrigin(origins = "${cross.origin.value}")
     @ResponseBody
     public ResponseEntity delete(@PathVariable Long id){  

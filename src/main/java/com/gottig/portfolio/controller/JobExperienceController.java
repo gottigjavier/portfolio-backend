@@ -44,7 +44,7 @@ public class JobExperienceController {
         return singleGet(id);
     }
     
-    @PostMapping("/create")
+    @PostMapping
     @CrossOrigin(origins = "${cross.origin.value}")
     @ResponseBody
     public ResponseEntity create(@RequestBody JobExperienceDTO jobDTO){
@@ -54,7 +54,7 @@ public class JobExperienceController {
         return getList();
     }
     
-    @PutMapping("/update")
+    @PutMapping
     @CrossOrigin(origins = "${cross.origin.value}")
     @ResponseBody
     public ResponseEntity update(@RequestBody JobExperienceDTO jobDTO){
@@ -64,7 +64,7 @@ public class JobExperienceController {
         return singleGet(jobDTO.getJobId());
     }
     
-    @PutMapping("/update/list")
+    @PutMapping("/list")
     @CrossOrigin(origins = "${cross.origin.value}")
     @ResponseBody
     public ResponseEntity updateList(@RequestBody List<JobExperienceDTO> jobListDTO){
@@ -76,7 +76,7 @@ public class JobExperienceController {
         return getList();
     }
     
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     @CrossOrigin(origins = "${cross.origin.value}")
     @ResponseBody
     public ResponseEntity delete(@PathVariable Long id){  

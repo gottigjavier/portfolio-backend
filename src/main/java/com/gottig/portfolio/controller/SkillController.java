@@ -44,7 +44,7 @@ public class SkillController {
         return singleGet(id);
     }
     
-    @PostMapping("/create")
+    @PostMapping
     @CrossOrigin(origins = "${cross.origin.value}")
     @ResponseBody
     public ResponseEntity create(@RequestBody SkillDTO skillDTO){
@@ -54,7 +54,7 @@ public class SkillController {
         return getList();
     }
     
-    @PutMapping("/update")
+    @PutMapping
     @CrossOrigin(origins = "${cross.origin.value}")
     @ResponseBody
     public ResponseEntity update(@RequestBody SkillDTO skillDTO){
@@ -64,7 +64,7 @@ public class SkillController {
         return singleGet(skillDTO.getSkillId());
     }
     
-    @PutMapping("/update/list")
+    @PutMapping("/list")
     @CrossOrigin(origins = "${cross.origin.value}")
     @ResponseBody
     public ResponseEntity updateList(@RequestBody List<SkillDTO> skillListDTO){
@@ -76,7 +76,7 @@ public class SkillController {
         return getList();
     }
     
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     @CrossOrigin(origins = "${cross.origin.value}")
     @ResponseBody
     public ResponseEntity delete(@PathVariable Long id){  

@@ -45,7 +45,7 @@ public class MyProjectController {
         return singleGet(id);
     }
     
-    @PostMapping("/create")
+    @PostMapping
     @CrossOrigin(origins = "${cross.origin.value}")
     @ResponseBody
     public ResponseEntity create(@RequestBody MyProjectDTO projDTO){
@@ -55,7 +55,7 @@ public class MyProjectController {
         return getList();
     }
     
-    @PutMapping("/update")
+    @PutMapping
     @CrossOrigin(origins = "${cross.origin.value}")
     @ResponseBody
     public ResponseEntity update(@RequestBody MyProjectDTO projDTO){
@@ -65,7 +65,7 @@ public class MyProjectController {
         return singleGet(projDTO.getProjId());
     }
     
-    @PutMapping("/update/list")
+    @PutMapping("/list")
     @CrossOrigin(origins = "${cross.origin.value}")
     @ResponseBody
     public ResponseEntity updateList(@RequestBody List<MyProjectDTO> projListDTO){
@@ -77,7 +77,7 @@ public class MyProjectController {
         return getList();
     }
     
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     @CrossOrigin(origins = "${cross.origin.value}")
     @ResponseBody
     public ResponseEntity delete(@PathVariable Long id){  

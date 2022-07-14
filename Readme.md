@@ -32,7 +32,7 @@ y agregarle parseBodyMethods="POST,PUT,DELETE" para que quede:
 />
 
 
-### Mysql Uso de XAMPP, o no
+### Ámbito Dev. Mysql Uso de XAMPP, o no
 
 En el caso de levantar el servidor mysql desde el terminal a través de
 
@@ -53,6 +53,8 @@ Para este pryecto, la mejor forma de establecer la persistencia
 es a través la reducción al mínimo del uso de tablas no relacionadas 
 (one to one, one to many, etc) y así lograr consultas más rápidas a la base de
 datos.
+Las únicas tablas relacionadas son las correspondientes a las entidades 
+Technology-MyProject y las JwtUser-JwtRole
 
 
 #### User y About
@@ -121,6 +123,11 @@ http://localhost:8080/{endpoint-recurso}/{id}
 - Technology --> techology
 
 **Peticiones:**
+
+Tratando de imitar las buenas prácticas, en los endpoints se prescinde de los 
+sustantivos (create, delete, etc) dejando la elección del método pertinente 
+al verbo de la petición.
+
 
 GET
 
@@ -235,9 +242,12 @@ En producción:
 
 https://portfoliogottig.herokuapp.com/swagger-ui/index.html
 
+(En el footer se agregó el enlace)
+
 El propósito del backend es el de funcionar como API para un frontend específico y no 
-como API pública, por lo tanto la implementación de Swagger es meramente con fines
-informativos.
+como API pública. La implementación de Swagger es meramente con fines
+informativos aunque se trató de aplicar las buenas prácticas y presentarla de la
+forma más completa posible.
 
 Para realizar peticiones a endpoints protegidos debe loguearse a través del endpoint
 "auth/login" y enviar el JSON con username y password.

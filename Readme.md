@@ -231,17 +231,15 @@ En el hámbito dev, puede ver la definición de la API en la ruta no protegida:
 
 http://localhost:8080/swagger-ui/index.html
 
+En producción:
+
+https://portfoliogottig.herokuapp.com/swagger-ui/index.html
+
 El propósito del backend es el de funcionar como API para un frontend específico y no 
 como API pública, por lo tanto la implementación de Swagger es meramente con fines
 informativos.
 
-Teniendo en cuenta esto, no podrá realizar peticiones a endpoints protegidos, por lo que
-devolverá un código de error 401 (ver sección JWT Security).
+Para realizar peticiones a endpoints protegidos debe loguearse a través del endpoint
+"auth/login" y enviar el JSON con username y password.
 
-Sólo podrá realizar peticiones GET a endpoints terminados en "/list" ya que muestran 
-el contenido público del sitio y la petición POST al endpoint "/auth/login"
-
-En caso de desear implementar acceso a rutas protegidas, ver:
-
-https://www.baeldung.com/openapi-jwt-authentication
-
+Al recibir el token podrá copiarlo y pegarlo en la ventana "Available authorizations".

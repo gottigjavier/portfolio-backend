@@ -11,6 +11,12 @@ import com.gottig.portfolio.jwtsecurity.jwtmodel.JwtRole;
 import com.gottig.portfolio.jwtsecurity.jwtmodel.JwtUser;
 import com.gottig.portfolio.jwtsecurity.jwtservice.JwtRoleService;
 import com.gottig.portfolio.jwtsecurity.jwtservice.JwtUserService;
+import com.gottig.portfolio.model.About;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -52,6 +58,17 @@ public class AuthController {
 
     //Espera un json y lo convierte a tipo clase NuevoUsuario
     // Solo el administrador puede crear usuarios
+    @Operation(summary = "Create User")
+    @ApiResponses(value = { 
+        @ApiResponse(responseCode = "200", description = "Create User [ROLE_USER, ROLE_ADMIN]", 
+        content = { @Content(mediaType = "application/json", 
+        schema = @Schema(implementation = JwtNewUserDTO.class)) }),
+    @ApiResponse(responseCode = "401", description = "Not Authorized", 
+        content = @Content),
+    @ApiResponse(responseCode = "400", description = "Bad request", 
+        content = @Content),
+    @ApiResponse(responseCode = "500", description = "Database error", 
+        content = @Content) })
     @PreAuthorize("hasRole('ADMIN')")
     @CrossOrigin(origins = "${cross.origin.value}")
     @PostMapping("/newuser")
@@ -84,6 +101,18 @@ public class AuthController {
         return new ResponseEntity<>(newUserDTO, HttpStatus.CREATED);
     }
     
+    
+    @Operation(summary = "Login User")
+    @ApiResponses(value = { 
+        @ApiResponse(responseCode = "200", description = "Login User", 
+        content = { @Content(mediaType = "application/json", 
+        schema = @Schema(implementation = JwtDTO.class)) }),
+    @ApiResponse(responseCode = "404", description = "Not found", 
+        content = @Content),
+    @ApiResponse(responseCode = "400", description = "Bad request", 
+        content = @Content),
+    @ApiResponse(responseCode = "500", description = "Database error", 
+        content = @Content) })
     @CrossOrigin(origins = "${cross.origin.value}")
     @PostMapping("/login")
     public ResponseEntity<JwtDTO> login(@Valid @RequestBody JwtUserLoginDTO loginUserDTO, BindingResult bindingResult){
@@ -101,6 +130,20 @@ public class AuthController {
         return new ResponseEntity<>(jwtDto, HttpStatus.OK);
     }
     
+    
+    @Operation(summary = "Change User Password")
+    @ApiResponses(value = { 
+        @ApiResponse(responseCode = "200", description = "Change User Password", 
+        content = { @Content(mediaType = "application/json", 
+        schema = @Schema(implementation = JwtUserLoginDTO.class)) }),
+    @ApiResponse(responseCode = "404", description = "Not found", 
+        content = @Content),
+    @ApiResponse(responseCode = "401", description = "Not Authorized", 
+        content = @Content),
+    @ApiResponse(responseCode = "400", description = "Bad request", 
+        content = @Content),
+    @ApiResponse(responseCode = "500", description = "Database error", 
+        content = @Content) })
     @CrossOrigin(origins = "${cross.origin.value}")
     @PutMapping("/changepass")
     public ResponseEntity changePass(@Valid @RequestBody JwtUserLoginDTO userDTO,
@@ -122,6 +165,19 @@ public class AuthController {
     }
     
     
+    @Operation(summary = "List of Usernames")
+    @ApiResponses(value = { 
+        @ApiResponse(responseCode = "200", description = "List of Usernames", 
+        content = { @Content(mediaType = "application/json", 
+        schema = @Schema(implementation = JwtListDTO.class)) }),
+    @ApiResponse(responseCode = "404", description = "Not found", 
+        content = @Content),
+    @ApiResponse(responseCode = "401", description = "Not Authorized", 
+        content = @Content),
+    @ApiResponse(responseCode = "400", description = "Bad request", 
+        content = @Content),
+    @ApiResponse(responseCode = "500", description = "Database error", 
+        content = @Content) })
     @CrossOrigin(origins = "${cross.origin.value}")
     @GetMapping("/userlist")
     public ResponseEntity userList(){
@@ -139,6 +195,20 @@ public class AuthController {
         return new ResponseEntity<>(listDTO, HttpStatus.OK);
     }
     
+    
+    @Operation(summary = "Delete User")
+    @ApiResponses(value = { 
+        @ApiResponse(responseCode = "200", description = "Delete User", 
+        content = { @Content(mediaType = "application/json", 
+        schema = @Schema(implementation = JwtListDTO.class)) }),
+    @ApiResponse(responseCode = "404", description = "Not found", 
+        content = @Content),
+    @ApiResponse(responseCode = "401", description = "Not Authorized", 
+        content = @Content),
+    @ApiResponse(responseCode = "400", description = "Bad request", 
+        content = @Content),
+    @ApiResponse(responseCode = "500", description = "Database error", 
+        content = @Content) })
     @CrossOrigin(origins = "${cross.origin.value}")
     @PostMapping("/delete")
     public ResponseEntity DelUser(@RequestBody JwtListDTO userDTO){

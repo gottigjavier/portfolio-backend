@@ -108,10 +108,16 @@ hay que agregar dentro de la clase que tiene el main:
 
 ### End Points
 
-Los endpoints tienen la forma:
+Los endpoints en el ámbito dev tienen la forma:
 
 ```
 http://localhost:8080/{endpoint-recurso}/{id}
+```
+
+El ámbito prod tienen la forma:
+
+```
+https://portfoliogottig.herokuapp.com/{endpoint-recurso}/{id}
 ```
  
 
@@ -152,7 +158,7 @@ POST
 
 Crear un recurso: ***create*** (el id del recurso se genera automáticamente en la tabla de la DB)
 ```
-Ejemplo: http://localhost:8080/user
+Ejemplo: http://localhost:8080/about
 ```
 
 \----------------------------------------
@@ -162,7 +168,7 @@ PUT
 
 Editar recurso: ***update*** (el id del recurso debe estar incluída en el body (JSON) de la petición)
 ```
-Ejemplo: http://localhost:8080/user
+Ejemplo: http://localhost:8080/about
 ```
 
 \----------------------------------------
@@ -172,7 +178,7 @@ DELETE
 
 Borrar recurso: ***delete*** (el id del recurso)
 ```
-Ejemplo: http://localhost:8080/user/1
+Ejemplo: http://localhost:8080/about/1
 ```
 
 \----------------------------------------

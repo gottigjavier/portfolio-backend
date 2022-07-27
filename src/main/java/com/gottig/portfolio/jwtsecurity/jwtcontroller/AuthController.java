@@ -209,6 +209,7 @@ public class AuthController {
         content = @Content),
     @ApiResponse(responseCode = "500", description = "Database error", 
         content = @Content) })
+    @PreAuthorize("hasRole('ADMIN')")
     @CrossOrigin(origins = "${cross.origin.value}")
     @PostMapping("/delete")
     public ResponseEntity DelUser(@RequestBody JwtListDTO userDTO){
